@@ -10,49 +10,12 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#include "./configure.h"
 #include "notes.h"
 
 struct Note {
     int fd;
     bool lock; /* This just prevents accidental modification of a note. False means it can be modified. */
 };
-
-static char *default_dir = LN_BASE_DEFAULT;
-static char *_default_dir = NULL;
-
-_Bool Note_SetDefault(char *new_default, size_t len){
-    _Bool success = false;
-    if(_default_dir == NULL) _default_dir = default_dir;
-    else free(default_dir);
-
-    if(new_default != NULL){
-        default_dir = NULL;
-        if((default_dir = calloc(len + 1, sizeof(char))) != NULL){
-            strncpy(default_dir, new_default, len);
-            *(default_dir + len) = '\0';
-            success = true;
-        }
-    }else{
-        default_dir = _default_dir;
-        success = true;
-    }
-    return success;
-}
-
-size_t Note_GetDefault(char *path, size_t len){
-    size_t _len = 0;
-    if(path != NULL){
-        if(len == (_len = strlen(default_dir))){
-            strcpy(path, default_dir);
-        }else{
-            _len = 0;
-        }
-    }else{
-        _len = strlen(default_dir);
-    }
-    return _len;
-}
 
 struct Note *Note_Open(char *path){
     struct Note nnote = {.fd = -1, .lock = false};
