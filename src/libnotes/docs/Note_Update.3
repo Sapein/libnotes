@@ -1,0 +1,45 @@
+.Dd September 08, 2019
+.Dt NOTE_UDPATE
+.Os
+.Sh NAME
+.Fn Note_Update
+.Nd Updates parts of a note.
+.Sh SYNOPSIS
+.Sy #include <libnotes.h>
+.Pp
+.Fn "void Note_Update" "struct Note *note" "char *header" "char *body"
+
+.Sh DESCRIPTION
+The function
+.Fn Note_Update
+updates the note on the disk, with the provided
+.Fa header
+and
+.Fa body
+if either of them are not NULL. If either
+.Fa header
+or
+.Fa body
+is NULL, then it will use the value already in the note.
+
+.Sh RETURN VALUE
+.Fn Note_Update does not return any value.
+
+.Sh CONFIRMRING TO
+This does not conform to, or implement, any standard.
+
+.Sh NOTES
+There is a chance an error during this occurs, due to internal usage of
+.Xr write 3 .
+If that occurs, then
+.Em errno
+will be set to a value specified for
+.Xr write 3 .
+
+.Sh SEE ALSO
+.Xr Note_GetBody 3
+.Xr Note_GetHeader 3
+.Xr write 3
+
+.Sh AUTHORS
+Sapeint/Chanku

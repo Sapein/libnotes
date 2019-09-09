@@ -1,0 +1,38 @@
+.Dd September 08, 2019
+.Dt NOTE_CLOSE 3
+.Os
+.Sh NAME
+.Fn Note_Close
+.Nd Opens a note for usage
+.Sh SYNOPSIS
+.Sy #include <libnotes.h>
+.Pp
+.Fn "void Note_Close" "struct Note *note"
+
+.Sh DESCRIPTION
+The
+.Sy "Note_Close()"
+function closes an already-opened note who is pointed by
+.Fa note
+and frees up all memory associated with it.
+
+.Sh RETURN VALUE
+.Fn "Note_Close"
+does not return a value.
+
+.Sh CONFIRMRING TO
+This does not conform to, or implement, any standard.
+
+.Sh NOTES
+You must call this to ensure proper cleanup, and to ensure that the file is closed properly.
+Further, in some cases it may fail, due using
+.Xr close 3
+internally, in that case, you will need to check
+.Em "errno".
+
+.Sh SEE ALSO
+.Xr close 3
+.Xr Note_Open 3
+
+.Sh AUTHORS
+Sapeint/Chanku

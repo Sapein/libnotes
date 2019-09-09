@@ -1,0 +1,13 @@
+/**
+ * @mainpage libnotes
+ * @section Introduction
+ * libnotes is a simple library for mangaging things like sticky-notes.
+ * It is intended to be used as a back-end API for all applications needing
+ * some basic functionality.
+ *
+ * See README.md for details on setting up.
+ *
+ * @section Documentaiton
+ * @ref notes.h "This is where most of the documentaiton is"
+ *
+ */
