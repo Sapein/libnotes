@@ -19,7 +19,7 @@ sets a lock on the already-opened note, pointed to by
 
 The function
 .Fn Note_Unlock
-rmeoves a lock on the already-opened note, pointed to by
+removes a lock on the already-opened note, pointed to by
 .Fa note .
 
 .Sh RETURN VALUE
@@ -33,9 +33,9 @@ does not return a value.
 This does not conform to, or implement, any standard.
 
 .Sh NOTES
-A 'lock' on a note, does not prevent modification of the file, and does nothing to the underlying
-system file. This is because what a 'lock' means might differ from front-end to front-end. One might want to
-lock the underlying file-resource and another might want to lock the note file itself.
+A 'lock' on a note, does not prevent modification of the Note by the library, and does nothing to the underlying
+file. This is because what a 'lock' means might differ from front-end to front-end. One might want to
+lock the underlying file and another might want to lock the note itself.
 
 .Sh SEE ALSO
 .Xr Note_GetLock 3
